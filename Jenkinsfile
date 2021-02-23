@@ -2,11 +2,15 @@ pipeline{
     agent any
     stages{
         stage('Clean, package java project'){
-            sh 'mvn -DskipTests clean package'
+            steps{
+                  sh 'mvn -DskipTests clean package'
+            }
         }
         
         stage('Execute unit tests via maven'){
-            sh 'mvn test'
+            steps{
+                sh 'mvn test'
+            }
         }
     }
 }
